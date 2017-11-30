@@ -15,8 +15,8 @@ class CreateMatriculadosTable extends Migration
     {
         Schema::create('matriculados', function (Blueprint $table) {
             $table->increments('mat_id');
-            $table->integer('admissao_fk')->unsigned();
-            $table->foreign('admissao_fk')->references('admissao_id')->on('admissaos');
+            $table->integer('matricula_fk')->unsigned();
+            $table->foreign('matricula_fk')->references('matricula_id')->on('matriculas');
         });
     }
 

@@ -22,23 +22,21 @@
 	<table>
 		<thead>
 			<tr>
+				<td>Matricula</td>
 				<td>Nome</td>
-				<td>No. de Horas</td>
-				<td>No. de Créditos</td>
-				<td>Coordenador</td>
-				<td>Area de Atuação</td>
-				<td>Departamento</td>
+				<td>CPF</td>
+				<td>Curso</td>
+				<td>Data de Ingresso</td>
 			</tr>
 		</thead>
 		<tbody>
-<!-- 			<tr ng-repeat="curso in cursos track by $index">
-				<td ng-bind="curso.nome"></td>
-				<td ng-bind="curso.horas"></td>
-				<td ng-bind="curso.creditos"></td>
-				<td ng-bind="curso.coord"></td>
-				<td ng-bind="curso.area"></td>
-				<td ng-bind="curso.dep"></td>
-			</tr> -->
+			<tr ng-repeat="aluno in alunos track by $index">
+				<td ng-bind="aluno.matricula"></td>
+				<td ng-bind="aluno.nome"></td>
+				<td ng-bind="aluno.cpf"></td>
+				<td ng-bind="aluno.curso"></td>
+				<td ng-bind="aluno.data"></td>
+			</tr>
 		</tbody>
 	</table>
 </div>

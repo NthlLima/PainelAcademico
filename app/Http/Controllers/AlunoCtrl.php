@@ -41,36 +41,20 @@ class AlunoCtrl extends Controller
 
     	$values = $request->all();
     	$insert = new Aluno();
+        $insert->matricular($values);
 
-    	if ($values["admissao"] == 1) {
-
-    		$insert->matricular($values);
-    		return [
+            return [
                 'result'  => true,
                 'message' => 'Aluno Matriculado com sucesso!',
             ];
-    		
-    	} else if($values["admissao"] == 2){
 
-    		if ($values["transf"]) {
-    			$insert->transferir($values);
-    			return [
-                	'result'  => true,
-                	'message' => 'Aluno Matriculado com sucesso!',
-            	];
-    		} else{
-    			return [
-                	'result'  => false,
-                	'message' => 'Faculdade de Origem não encontrada!',
-            	];
-    		}
+    }
 
-    	} else{
-    		return [
-                'result'  => false,
-                'message' => 'Tipo de Admissão não encontrado!',
-            ];
-    	}
+    public function list()
+    {
+        $search = new Aluno();
+        $alunos = $search->get_list();
+        return $alunos;
 
     }
 

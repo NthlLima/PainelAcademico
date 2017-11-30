@@ -40,6 +40,7 @@ Route::post('/api/curso/by_departamento',['as'=>'api.curso.by_departamento', 'us
 // ALUNOS
 Route::post('/api/alunos/matricular',['as'=>'api.alunos.matricular', 'uses'=>'AlunoCtrl@matricular']);
 Route::get('/api/alunos/all',['as'=>'api.alunos.all', 'uses'=>'AlunoCtrl@all']);
+Route::get('/api/alunos/list',['as'=>'api.alunos.list', 'uses'=>'AlunoCtrl@list']);
 // DISCIPLINAS
 Route::post('/api/disciplinas/adicionar',['as'=>'api.disciplinas.adicionar', 'uses'=>'DisciplinaCtrl@adicionar']);
 Route::get('/api/disciplinas/listar',['as'=>'api.disciplinas.listar', 'uses'=>'DisciplinaCtrl@listar']);

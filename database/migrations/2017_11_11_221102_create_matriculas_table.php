@@ -18,11 +18,9 @@ class CreateMatriculasTable extends Migration
             $table->string('matricula_num', 20);
             $table->integer('aluno')->unsigned();
             $table->integer('curso')->unsigned();
-            $table->integer('admissao')->unsigned();
             $table->date('data_ingresso');
             $table->foreign('aluno')->references('id_aluno')->on('alunos');
             $table->foreign('curso')->references('curso_id')->on('cursos');
-            $table->foreign('admissao')->references('admissao_id')->on('admissaos');
         });
     }
 

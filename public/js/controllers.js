@@ -372,6 +372,12 @@ app.controller('ctrlAluno', function($location, $timeout, $scope, $http, ngToast
 
   };
 
+  $scope.init = function(){
+    alunoService.list().then(function(response){
+        $scope.alunos = response.data;
+    });
+  };
+
 
   $scope.initMat = function(){
 
@@ -393,19 +399,18 @@ app.controller('ctrlAluno', function($location, $timeout, $scope, $http, ngToast
 
   };
 
-  $scope.alunoAdm = function(){
+  $scope.alunoAdm = function(admissao){
 
-    if ($scope.aluno.admissao == 1 || $scope.mat.admissao == 1) {
+    if (admissao == 1 || admissao == 1) {
       $scope.transf = false;
     }
-    else if ($scope.aluno.admissao == 2 || $scope.mat.admissao == 2) {
+    else if (admissao == 2 || admissao == 2) {
       $scope.transf = true;
     }
 
   }
 
   $scope.addAluno = function (){
-
     alunoService.matricular($scope.aluno).then(function(response){
         $scope.toast(response.data.result, response.data.message);
 

@@ -15,9 +15,9 @@ class CreateTransferidosTable extends Migration
     {
         Schema::create('transferidos', function (Blueprint $table) {
             $table->increments('transf_id');
-            $table->integer('admissao_fk')->unsigned();
+            $table->integer('matricula_fk')->unsigned();
             $table->string('faculdade_origem', 150);
-            $table->foreign('admissao_fk')->references('admissao_id')->on('admissaos');
+            $table->foreign('matricula_fk')->references('matricula_id')->on('matriculas');
         });
     }
 

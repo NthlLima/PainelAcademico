@@ -53,12 +53,12 @@
 		<div class="login-input">
 			<select required="required" ng-model="aluno.curso">
 				<option value="">Selecione</option>
-				<option ng-repeat="curso in cursos track by $index" ng-value="curso.id" ng-bind="curso.nome"></option>	
+				<option ng-repeat="curso in cursos track by $index" ng-value="curso.curso_id" ng-bind="curso.curso_nome"></option>	
 			</select>
 		</div>
 		<small>Tipo Admissão:</small>
 		<div class="login-input">
-			<select required="required" ng-change="alunoAdm()" ng-model="aluno.admissao">
+			<select required="required" ng-change="alunoAdm(aluno.admissao)" ng-model="aluno.admissao">
 				<option value="">Selecione</option>
 				<option value="1">Matriculado</option>
 				<option value="2">Transferido</option>

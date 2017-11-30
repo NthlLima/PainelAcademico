@@ -120,6 +120,9 @@ app.factory('alunoService',function($http) {
 		},
 		all: function(){
 			return $http.get('/api/alunos/all');
+		},
+		list: function(){
+			return $http.get('/api/alunos/list');
 		}
 	}
 
