@@ -30,11 +30,42 @@ class TurmasCtrl extends Controller
     public function adicionar(Request $request){
 
         $values = $request->all();
-        Turma::create($values);
+        $insert = new Turma();
 
-        return [
-                'result'  => true,
-                'message' => 'Turma Cadastrada com sucesso!',
-            ];
+        try {
+
+            $insert->adicionar($values);
+            $err = '';
+
+        }
+
+        catch (\PDOException $e) {
+
+            $err = $e->getCode();
+
+        }
+
+        if ($err == '') {
+
+            return [
+                    'result'  => true,
+                    'message' => 'Turma incluida com sucesso',
+                ];
+
+        } else{
+
+            if ($err == 45005) {
+                $return = 'Os 2 horários não podem ser no mesmo dia';
+            } else {
+                $return = $err;
+            }
+
+
+            return [
+                    'result'  => false,
+                    'message' => $return,
+                ];
+        }
+        
     }
 }

@@ -16,6 +16,7 @@ class CreateHorariosTable extends Migration
         Schema::create('horarios', function (Blueprint $table) {
             $table->integer('turma')->unsigned();
             $table->string('horario', 10);
+            $table->string('dia', 10);
             $table->foreign('turma')->references('turma_id')->on('turmas');
         });
     }

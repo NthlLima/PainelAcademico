@@ -635,8 +635,7 @@ app.controller('ctrlTurmas', function($location, $timeout, $scope, $http, ngToas
   };
 
   $scope.AddTurma = function (){
-
-    turmaService.adicionar($scope.prereq).then(function(response){
+    turmaService.adicionar($scope.turma).then(function(response){
         $scope.toast(response.data.result, response.data.message);
 
         if (response.data.result == true) {
