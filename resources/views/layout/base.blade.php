@@ -109,16 +109,44 @@
                     </a>
                 </li>
                 <li
-         		@if(Route::currentRouteName() == 'painel.grade')
+                @if(Route::currentRouteName() == 'painel.grade')
+                    class="active"
+                @else
+                
+                @endif
+                >
+                    <a href="{{ route('painel.grade') }}">
+                        <div class="item">
+                            <div class="item-icon"><i class="fa fa-th" aria-hidden="true"></i></div>
+                            <div class="item-text"><span>Grade</span></div>
+                        </div>
+                    </a>
+                </li>
+                <li
+                @if(Route::currentRouteName() == 'painel.turmas')
+                    class="active"
+                @else
+                
+                @endif
+                >
+                    <a href="{{ route('painel.turmas') }}">
+                        <div class="item">
+                            <div class="item-icon"><i class="fa fa-calendar" aria-hidden="true"></i></div>
+                            <div class="item-text"><span>Turmas</span></div>
+                        </div>
+                    </a>
+                </li>
+                <li
+         		@if(Route::currentRouteName() == 'painel.matricular')
            			class="active"
          		@else
             	
          		@endif
          		>
-         			<a href="{{ route('painel.grade') }}">
+         			<a href="{{ route('painel.matricular') }}">
          				<div class="item">
-							<div class="item-icon"><i class="fa fa-th" aria-hidden="true"></i></div>
-							<div class="item-text"><span>Grade</span></div>
+							<div class="item-icon"><i class="fa fa-book" aria-hidden="true"></i></div>
+							<div class="item-text"><span>Matricular Alunos</span></div>
 						</div>
          			</a>
          		</li>

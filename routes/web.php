@@ -51,6 +51,8 @@ Route::post('/api/disciplinas/adicionar_grade',['as'=>'api.disciplinas.adicionar
 Route::post('/api/disciplinas/get_cursos',['as'=>'api.disciplinas.get_cursos', 'uses'=>'DisciplinaCtrl@get_cursos']);
 // GRADE
 Route::post('/api/grade/buscar',['as'=>'api.grade.buscar', 'uses'=>'GradeCtrl@buscar']);
+// TURMAS
+Route::post('/api/turmas/adicionar',['as'=>'api.turmas.adicionar', 'uses'=>'TurmasCtrl@adicionar']);
 	
 
 /*
@@ -79,6 +81,9 @@ Route::group(['middleware'=>'auth'], function(){
   Route::get('/disciplinas/pre_requisito', ['as'=>'painel.disciplinas.pre_requisito','uses'=>'DisciplinaCtrl@indexPR']); 
   Route::get('/disciplinas/adicionar/grade', ['as'=>'painel.disciplinas.adicionar.grade','uses'=>'DisciplinaCtrl@indexAddGrade']); 
   Route::get('/grade', ['as'=>'painel.grade','uses'=>'GradeCtrl@index']); 
+  Route::get('/matricular', ['as'=>'painel.matricular','uses'=>'MatricularCtrl@index']); 
+  Route::get('/turmas', ['as'=>'painel.turmas','uses'=>'TurmasCtrl@index']); 
+  Route::get('/turmas/adicionar', ['as'=>'painel.turmas.adicionar','uses'=>'TurmasCtrl@indexAdicionar']); 
 
 });
 

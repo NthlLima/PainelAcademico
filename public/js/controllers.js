@@ -598,3 +598,56 @@ app.controller('ctrlGrade', function($location, $timeout, $scope, $http, ngToast
 
 
 });
+
+
+app.controller('ctrlTurmas', function($location, $timeout, $scope, $http, ngToast, discService, turmaService)
+{
+
+  $scope.table = false;
+
+  $scope.toast = function (result, message){
+    if(result == true){
+
+      var toastTrue = ngToast.success({
+        content: message,
+        dismissOnTimeout:false,
+        dismissButton:true,
+        horizontalPosition: 'center'
+      });
+
+    } else{
+
+      var toastFalse = ngToast.danger({
+          content: message,
+          dismissOnTimeout:false,
+          dismissButton:true,
+          horizontalPosition: 'center'
+      });
+    }
+
+  };
+
+
+  $scope.initAdd = function(){
+    discService.all().then(function(response){
+      $scope.disciplinas = response.data;
+    });
+  };
+
+  $scope.AddTurma = function (){
+
+    turmaService.adicionar($scope.prereq).then(function(response){
+        $scope.toast(response.data.result, response.data.message);
+
+        if (response.data.result == true) {
+            setTimeout(function () {
+              location.assign("/turmas");
+            }, 1000);
+        }
+    });
+
+  };
+
+
+
+});

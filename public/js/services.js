@@ -165,3 +165,13 @@ app.factory('gradeService',function($http) {
 	}
 
 });
+
+app.factory('turmaService',function($http) {
+
+	return {
+		adicionar: function(data){
+			return $http.post('/api/turmas/adicionar', data);
+		}
+	}
+
+});
